@@ -51,6 +51,9 @@ func needFloat(x float64) float64 {
 
 
 func main() {
+
+	fmt.Println("------ start main ------")
+
 	//しっかり乱数を生成するにはseedが必要
 	//time.Now().UnixNano()をSeedにするなど
 	fmt.Println("My favorite number is", rand.Intn(10))
@@ -126,5 +129,5 @@ func main() {
 	fmt.Println(needFloat(Small))
 	fmt.Println(needFloat(Big))
 
-
+	main2()
 }
