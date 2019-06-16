@@ -1,3 +1,5 @@
+/* Exercise: Loops and Functions */
+
 package main
 
 import (
@@ -5,7 +7,7 @@ import (
 	"math"
 )
 
-/* Exercise: Loops and Functions */
+//推測 10回固定
 func Sqrt10(x float64) float64 {
 	z := float64(1)
 	for i:=0; i<10; i++ {
@@ -14,6 +16,7 @@ func Sqrt10(x float64) float64 {
 	return z
 }
 
+//推測 動的
 func Sqrt(x float64) float64 {
 	z := float64(1)
 	prez := float64(0)

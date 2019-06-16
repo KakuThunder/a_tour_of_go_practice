@@ -2,7 +2,9 @@ package main
 
 import "fmt"
 
-
+/*
+Exercise 一括起動用の main 
+*/
 
 func main(){
 
