@@ -11,6 +11,8 @@
   * second_block
     for, if, else, switch, deferなどの制御構文
 
+  * third_block
+	structs, slices, maps などの型に関する取扱い
 
 ## Exercise
 
@@ -19,8 +21,3 @@
   * Loops and Functions
 
 
-## コマンド備忘録
-
-    *git remote add origin https://github.com/KakuThunder/a_tour_of_go_practice.git*
-
-    *git push -u origin master*
