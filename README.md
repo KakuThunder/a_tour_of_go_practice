@@ -5,15 +5,21 @@
 
 ## ブロック内訳
 
-* first_block
+  * first_block
     Packages, variables, functionsなどの基本的な宣言
 
-* second_block
+  * second_block
     for, if, else, switch, deferなどの制御構文
 
 
+## Exercise
 
-* 以下コマンド備忘録
+  回答済み演習リスト
+
+  * Loops and Functions
+
+
+## コマンド備忘録
 
     *git remote add origin https://github.com/KakuThunder/a_tour_of_go_practice.git*
 
