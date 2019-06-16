@@ -130,4 +130,5 @@ func main() {
 	fmt.Println(needFloat(Big))
 
 	main2()
+	main3()
 }
