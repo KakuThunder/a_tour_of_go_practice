@@ -9,6 +9,7 @@ More types:
 
 import (
 	"fmt"
+	"strings"
 )
 
 //Struct
@@ -20,14 +21,18 @@ type Vertex struct {
 
 //構造体の初期化
 var (
-    v1 = Vertex{1,2}
+    v1 = Vertex{1, 2}
     v2 = Vertex{X: 1}
     v3 = Vertex{}
-    p3 = &Vertex{1,2}
+    p3 = &Vertex{1, 2}
 )
 
 func printSlice(s []int) {
     fmt.Printf("len=%d cap=%d %v\n", len(s), cap(s), s)
+}
+
+func printmakeSlice(s string, x []int) {
+	fmt.Printf("%s len=%d cap=%d %v\n", s, len(x), cap(x), x)
 }
 
 func main3() {
@@ -65,7 +70,7 @@ func main3() {
 	fmt.Println(a[0],a[1])
 	fmt.Println(a)
 
-	primes := [6]int{2,3,5,7,11,13}
+	primes := [6]int {2,3,5,7,11,13}
 	fmt.Println(primes)
 
 	//配列のスライス
@@ -74,7 +79,7 @@ func main3() {
 
 	//スライスは配列の参照であり
 	//新たに生成しているわけではない
-	names := [4]string{
+	names := [4]string {
 		"John",
 		"Paul",
 		"George",
@@ -92,10 +97,10 @@ func main3() {
 
 	//スライスのリテラル
 	//配列を生成して参照するスライスを作成する
-	qarr := []int{2,3,5,7,11,13}
+	qarr := []int {2,3,5,7,11,13}
 	fmt.Println(qarr)
 
-	r := []bool{true, false, true, true, false, true}
+	r := []bool {true, false, true, true, false, true}
 	fmt.Println(r)
 
 	strux := []struct {
@@ -136,6 +141,67 @@ func main3() {
 
     // Drop its first two values.
     funsarr = funsarr[2:]
-    printSlice(funsarr)
+	printSlice(funsarr)
+	
+	//空スライス nil
+	var nils []int
+	fmt.Println(s, len(s), cap(s))
+	if nils == nil {
+		fmt.Println("nil")
+	}
+
+	//動的配列作成
+	//型 , 長さ, 容量
+	slicea := make([]int, 5)
+	printmakeSlice("slicea", slicea)
+
+	sliceb := make([]int, 0, 5)
+	printmakeSlice("sliceb", sliceb)
+
+	slicec := sliceb[:2]
+	printmakeSlice("slicec", slicec)
+
+	sliced := slicec[2:5]
+	printmakeSlice("sliced", sliced)
+
+	board := [][]string {
+		[]string{"_", "_", "_"},
+		[]string{"_", "_", "_"},
+		[]string{"_", "_", "_"},
+	}
+
+	board[1][1] = "X"
+	board[0][1] = "O"
+	board[0][0] = "X"
+	board[2][2] = "O"
+	board[1][0] = "X"
+	board[1][2] = "O"
+	board[2][0] = "X"
+
+	for i := 0; i < len(board); i++ {
+		fmt.Printf("%s\n", strings.Join(board[i], " "))
+	}
+
+	//slice への要素の追加
+	var appends []int
+	printSlice(appends)
+
+	appends = append(appends, 0)
+	printSlice(appends)
+
+	appends = append(appends, 1)
+	printSlice(appends)
+
+	appends = append(appends, 2, 3, 4)
+	printSlice(appends)
+
+	//slice の for文処理
+	var itrpow = []int {1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048}
+
+	// index , value := range(slice/map)
+	for itr1, itr2 :=  range itrpow {
+		fmt.Printf("2**%d = %d \n", itr1, itr2)
+	}
+
 
 }
