@@ -17,6 +17,10 @@ type Vertex struct {
     X int
     Y int
 }
+type Location struct {
+	Lat, Long float64
+}
+
 
 
 //構造体の初期化
@@ -202,6 +206,52 @@ func main3() {
 	for itr1, itr2 :=  range itrpow {
 		fmt.Printf("2**%d = %d \n", itr1, itr2)
 	}
+
+	rangepow := make([]int, 10)
+	for i := range rangepow {
+		rangepow[i] = 1 << uint(i) 
+	}
+	for _, value := range rangepow {
+		fmt.Printf("%d\n", value)
+	}
+
+	//map 
+	var point map[string] Location
+
+	point = make(map[string]Location)
+	point["Bell Labs"] = Location{
+		40.68433, -74.39967,
+	}
+	fmt.Println(point["Bell Labs"])
+
+	/*
+	var point2 = map[string] Location {
+		"Bell Labs": Location {
+			40.68433, -74.39967,
+		},
+		"Google": Location {
+			37.42202, -122.08408,
+		},		
+	}*/
+	var point2 = map[string] Location{
+		"Bell Labs": {40.68433, -74.39967},
+		"Google":    {37.42202, -122.08408},
+	}
+	fmt.Println(point2)
+
+	mutatem := make(map[string]int)
+
+	mutatem["Answer"] = 42
+	fmt.Println("The value:", mutatem["Answer"])
+
+	mutatem["Answer"] = 48
+	fmt.Println("The value:", mutatem["Answer"])
+
+	delete(mutatem, "Answer")
+	fmt.Println("The value:", mutatem["Answer"])
+
+	value, ok := mutatem["Answer"]
+	fmt.Println("The value:", value, "Present?", ok)	
 
 
 }
