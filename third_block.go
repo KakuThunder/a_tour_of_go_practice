@@ -9,6 +9,7 @@ More types:
 
 import (
 	"fmt"
+	"math"
 	"strings"
 )
 
@@ -39,6 +40,19 @@ func printmakeSlice(s string, x []int) {
 	fmt.Printf("%s len=%d cap=%d %v\n", s, len(x), cap(x), x)
 }
 
+//関数を引数とする関数
+func compute(fn func(float64, float64) float64) float64 {
+	return fn(3,4)
+}
+
+func adder() func(x int) int{
+	sum := 0
+	return func(x int) int {
+		sum += x
+		return sum
+	}
+}
+ 
 func main3() {
 
 	fmt.Println("------ start main3 ------")
@@ -253,5 +267,16 @@ func main3() {
 	value, ok := mutatem["Answer"]
 	fmt.Println("The value:", value, "Present?", ok)	
 
+	hypot := func(x,y float64) float64 {
+		return math.Sqrt(x*x + y*y)
+	}
+	fmt.Println(hypot(5,12))
 
+	fmt.Println(compute(hypot))
+	fmt.Println(compute(math.Pow))
+
+	pos, neg := adder(), adder()
+	for i := 0; i < 10; i++{
+		fmt.Println(pos(i),neg(-2*i))
+	}
 }
