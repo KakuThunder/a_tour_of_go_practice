@@ -14,10 +14,17 @@
   * third_block
 	structs, slices, maps などの型に関する取扱い
 
+  * fourth_block
+  Method, interface の扱い方
+
 ## Exercise
 
   回答済み演習リスト
 
   * Loops and Functions
 
+  * Slices
 
+  * Maps
+
+  * fibonacci
