@@ -18,13 +18,17 @@ func (v Point) Absm() float64 {
 	return math.Sqrt(v.X*v.X + v.Y*v.Y)
 }
 /* Pointer receivers */
-//
+//pointerでないと関数内のみのスコープになる
 func (v *Point) Scale(f float64) {
 	v.X = v.X * f
 	v.Y = v.Y * f	
 }
 
 
+func Scalef(v *Point, f float64) {
+	v.X = v.X * f
+	v.Y = v.Y * f	
+}
 
 /* function */
 func Absf(v Point) float64 {
@@ -55,5 +59,8 @@ func main4(){
 
 	v.Scale(10)
 	fmt.Println(v.Absm())
+
+	Scalef(&v,10)
+	fmt.Println(Absf(v))
 
 }
