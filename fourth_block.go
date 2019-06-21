@@ -63,4 +63,15 @@ func main4(){
 	Scalef(&v,10)
 	fmt.Println(Absf(v))
 
+	//func　の方はポインタを引数に取る
+	v2 := Point{3, 4}
+	v2.Scale(2)
+	Scalef(&v2, 10)
+
+	p2 := &Point{4, 3}
+	p2.Scale(3)
+	Scalef(p2, 8)
+
+	fmt.Println(v2, p2)
+
 }
