@@ -17,6 +17,12 @@ type Point struct {
 func (v Point) Absm() float64 {
 	return math.Sqrt(v.X*v.X + v.Y*v.Y)
 }
+
+/* function */
+func Absf(v Point) float64 {
+	return math.Sqrt(v.X*v.X + v.Y*v.Y)
+}
+
 /* Pointer receivers */
 //pointerでないと関数内のみのスコープになる
 func (v *Point) Scale(f float64) {
@@ -24,16 +30,12 @@ func (v *Point) Scale(f float64) {
 	v.Y = v.Y * f	
 }
 
-
 func Scalef(v *Point, f float64) {
 	v.X = v.X * f
 	v.Y = v.Y * f	
 }
 
-/* function */
-func Absf(v Point) float64 {
-	return math.Sqrt(v.X*v.X + v.Y*v.Y)
-}
+
 
 /* Methods continued */
 type MyFloat float64
@@ -73,5 +75,13 @@ func main4(){
 	Scalef(p2, 8)
 
 	fmt.Println(v2, p2)
+
+	v3 := Point{3, 4}
+	fmt.Println(v3.Absm())
+	fmt.Println(Absf(v3))
+
+	p3 := &Point{4, 3}
+	fmt.Println(p3.Absm())
+	fmt.Println(Absf(*p3))
 
 }
