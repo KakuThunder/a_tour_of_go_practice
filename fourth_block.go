@@ -47,6 +47,33 @@ func (f MyFloat) Absmc() float64 {
 	return float64(f)
 }
 
+//Interface
+
+type Inter interface {
+	Met()
+}
+type Typ struct {
+	Strin string
+}
+
+func (t *Typ) Met() {
+	if t == nil{
+		fmt.Println("<nil>")
+		return
+	}
+	fmt.Println(t.Strin)
+}
+
+type Flo float64
+
+func (f Flo) Met() {
+	fmt.Println(f)
+}
+
+func describe(i Inter) {
+	fmt.Printf("(%v, %T)\n", i, i)
+}
+
 
 func main4(){
 
@@ -76,6 +103,7 @@ func main4(){
 
 	fmt.Println(v2, p2)
 
+	//変数はポインタをとれない
 	v3 := Point{3, 4}
 	fmt.Println(v3.Absm())
 	fmt.Println(Absf(v3))
@@ -84,4 +112,21 @@ func main4(){
 	fmt.Println(p3.Absm())
 	fmt.Println(Absf(*p3))
 
+	v4 := &Point{3, 4}
+	fmt.Printf("Before scaling: %+v, Absm: %v\n", v4, v4.Absm())
+	v4.Scale(5)
+	fmt.Printf("After scaling: %+v, Absm: %v\n", v4, v4.Absm())
+
+	var interf Inter = &Typ{"Hello"}
+	interf.Met()
+
+	interf = Flo(math.Pi)
+	describe(interf)
+	interf.Met()
+
+	//methodがnilをレシーバとしても呼び出せる
+	var tmp *Typ
+	interf = tmp
+	describe(interf)
+	interf.Met()
 }
