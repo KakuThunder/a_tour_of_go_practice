@@ -74,7 +74,11 @@ func describe(i Inter) {
 	fmt.Printf("(%v, %T)\n", i, i)
 }
 
+func empdescribe(i interface{}){
+	fmt.Printf("(%v, %T)\n", i, i)
+}
 
+//----------- main ----------------
 func main4(){
 
 	fmt.Println("------ start main4 ------")
@@ -129,4 +133,26 @@ func main4(){
 	interf = tmp
 	describe(interf)
 	interf.Met()
+
+	//nilインタフェースのメソッドを呼ぶことはできない
+	/*
+	var i I
+	describe(i)
+	i.M()
+	*/
+
+	//メソッドが指定されていないものは空interface
+	//任意の型の値を保持することができる
+	//型が宣言時に判断できないものを取り扱うときに利用する
+	var empi interface{}
+	empdescribe(empi)
+	empi = 42
+	empdescribe(empi)
+	empi = "hello"
+	empdescribe(empi)
+
+
+
+
+
 }
