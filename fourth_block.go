@@ -78,6 +78,17 @@ func empdescribe(i interface{}){
 	fmt.Printf("(%v, %T)\n", i, i)
 }
 
+func do(i interface{}) {
+	switch v := i.(type) {
+	case int:
+		fmt.Printf("Twice %v is %v\n", v , v*2)
+	case string:
+		fmt.Printf("%q is %v bytes long\n", v, len(v))
+	default:
+		fmt.Printf("I don't know about type %T!", v)
+	}
+}
+
 //----------- main ----------------
 func main4(){
 
@@ -151,8 +162,26 @@ func main4(){
 	empi = "hello"
 	empdescribe(empi)
 
+	//型アサーション
+	var assi interface{} = "String"
 
+	s := assi.(string)
+	fmt.Println(s)
 
+	s,ok := assi.(string)
+	fmt.Println(s, ok)
+
+	fl,ok := assi.(float64)
+	fmt.Println(fl,ok)
+
+	//fl = assi.(float64) //panic
+	//fmt.Println(fl)
+
+	//type swirch
+	//様々な型のデータをとれる
+	do(21)
+	do("Hello")
+	do(true)
 
 
 }
