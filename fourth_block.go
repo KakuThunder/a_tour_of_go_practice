@@ -89,6 +89,15 @@ func do(i interface{}) {
 	}
 }
 
+type Person struct {
+	Name string
+	Age int
+}
+
+func (p Person) String() string {
+	return fmt.Sprintf("%v (%v years)", p.Name, p.Age)
+}
+
 //----------- main ----------------
 func main4(){
 
@@ -183,5 +192,10 @@ func main4(){
 	do("Hello")
 	do(true)
 
+	fmt.Println()
+
+	humana := Person{"Arthur Dent", 42}
+	humanz := Person{"Zaphod Beeblebrox", 9001}
+	fmt.Println(humana,humanz)
 
 }
