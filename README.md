@@ -28,3 +28,5 @@
   * Maps
 
   * fibonacci
+
+  * stringer
