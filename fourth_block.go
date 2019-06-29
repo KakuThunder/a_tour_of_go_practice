@@ -6,7 +6,9 @@ Methods and interfaces
 
 import (
 	"fmt"
+	"io"
 	"math"
+	"strings"
 )
 
 
@@ -197,5 +199,19 @@ func main4(){
 	humana := Person{"Arthur Dent", 42}
 	humanz := Person{"Zaphod Beeblebrox", 9001}
 	fmt.Println(humana,humanz)
+
+	comment := strings.NewReader("Hello, Reader!")
+
+	block := make([]byte,8)
+	for {
+		n, err := comment.Read(block)
+		fmt.Printf("n=%v err = %v b = %v\n", n, err, block)
+		fmt.Printf("block[:n] = %q\n",block[:n])
+
+		if err == io.EOF {
+			break
+		}
+	}
+
 
 }
