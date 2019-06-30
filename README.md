@@ -17,6 +17,12 @@
   * fourth_block
   Method, interface の扱い方
 
+  * error
+  エラーハンドリング
+
+  * image
+  imageパッケージの利用
+
 ## Exercise
 
   回答済み演習リスト
@@ -30,3 +36,9 @@
   * fibonacci
 
   * stringer
+
+  * readers
+
+  * rot13Reader
+
+  * Images
