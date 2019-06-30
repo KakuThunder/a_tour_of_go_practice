@@ -17,6 +17,9 @@
   * fourth_block
   Method, interface の扱い方
 
+  * fifth_block
+  go routineの取り扱い
+
   * error
   エラーハンドリング
 
